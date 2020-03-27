@@ -1,3 +1,7 @@
+# Install atom ide:
+
+$ sudo snap install atom –classic
+
 # Install rbenv:
 
 $ cd
@@ -69,9 +73,11 @@ $ bundle install
 
 # Create a new controller in /cow_say/app/controllers
 
-$ touch cow_controller.rb
+$ touch /cow_say/app/controllers/cow_controller.rb
 
 # Update /cow_say/app/controllers/cow_controller.rb
+
+$ atom /cow_say/app/controllers/cow_controller.rb
 
     # app/controllers/cow_controller.rb
     class CowController < ApplicationController
@@ -88,17 +94,26 @@ $ touch cow_controller.rb
       end
     end
 
-# Create a new view in /cow_say/app/views to serve json
+# Make a 'cow' directory in /cow_say/app/views
+
+$ mkdir /cow_say/app/views/cow
+
+# Create a new 'json' view in /cow_say/app/views/cow
+
+$ touch /cow_say/app/views/cow/say.json.builder
+
+# Update /cow_say/app/views/cow/say.json.builder
+
+$ atom /cow_say/app/views/cow/say.json.builder
 
     # app/views/cow/say.json.jbuilder
     json.message @message
-
 
 # Start rails server on default port 3000
 
 $ rails serve
 
-# Test /say endpoint in a new terminal
+# Open a new terminal to test /say endpoint with 'curl'
 
 $ curl localhost:3000/say -H 'Content-Type: application/json' -d '{"message": "Hello from RapidAPI", "cow": "sodomized", "balloon_type": "think"}' | ruby -r json -e "print JSON.parse(STDIN.read)['message']"
 
