@@ -32,7 +32,7 @@ $ rbenv rehash
 
 $ gem install rails -v 6.0.2.1
 
-# Create lean rails api project without active record for database:
+# Create lean rails-api skeleton without database provisions:
 
 $ rails new cow_say --api --skip-active-record
 
