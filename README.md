@@ -40,6 +40,12 @@ $ rails new cow_say --api --skip-active-record
 
 $ sudo rm Gemfile.lock
 
+# Add the following gems to gemfile after the gem 'puma':
+
+gem 'ruby_cowsay'
+
+gem 'jbuilder'
+
 # Upgrade bundler
 
 $ gem update --system
@@ -47,6 +53,8 @@ $ gem update --system
 $ gem install bundler
 
 $ bundler update --bundler
+
+# Install all the gems from the updated gemfile
 
 $ bundle install
 
