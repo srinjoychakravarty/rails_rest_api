@@ -36,6 +36,8 @@ $ gem install rails -v 6.0.2.1
 
 $ rails new cow_say --api --skip-active-record
 
+$ cd cow_say
+
 # Remove pre-existing Gemfile.lock
 
 $ sudo rm Gemfile.lock
@@ -57,6 +59,26 @@ $ bundler update --bundler
 # Install all the gems from the updated gemfile
 
 $ bundle install
+
+# Update the /cow_say/config/routes.rb endpoint
+
+    # config/routes.rb
+    Rails.application.routes.draw do
+      post 'say', to: 'cow#say'
+    end
+
+# Create a new controller in /cow_say/app/controllers
+
+$ touch cow_controller.rb
+
+# Update /cow_say/app/controllers/cow_controller.rb
+
+    # app/controllers/cow_controller.rb
+    class CowController < ApplicationController
+      def say
+        @message = Cow.new.say(params[:message])
+      end
+    end
 
 # Start rails server on default port 3000
 
